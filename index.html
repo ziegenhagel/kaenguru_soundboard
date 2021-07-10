@@ -1,8 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <link href="//db.onlinewebfonts.com/c/ac330a88a807245f5f609d0a8792a2dd?family=Sabotage" rel="stylesheet" type="text/css"/>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name = "viewport" content = "initial-scale = 1.0, user-scalable = no">
-<meta name = "viewport" content = "width = device-width">
+<meta name = "viewport" content = "initial-scale = 1.0, user-scalable = no,width = device-width">
 
 
 <div id="app">
@@ -13,7 +12,7 @@
          :key="sound"
          @click="currentSound=sound"
          v-if="sound != ''"
-          >{{sound}}</div>
+         ><div>{{sound}}</div></div>
     </div>
   <audio :src="'sounds/'+currentSound+'.wav.mp3'" :autoPlay="true"></audio>
 </div>
@@ -23,7 +22,7 @@ var app = new Vue({
   el: '#app',
   data: {
     sounds: "Ding Dong.wav.mp3Ich hab Zeit.wav.mp3Vielen lieben Dank.wav.mp3Hallo.wav.mp3Nicht zu Lidl.wav.mp3Wat kieken se n so.wav.mp3Ham se den Neuen jesehn.wav.mp3Oh hehehe.wav.mp3".split(".wav.mp3"),
-    currentSound: "Ding Dong",
+    currentSound: "",
     message: 'Hello Vue!'
   }
 })
@@ -31,13 +30,23 @@ var app = new Vue({
 
 <style>
 @font-face {font-family: "sabotage"; src: url("sabotage.ttf");}
+body, .button>div{
+    display:flex;
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+}
+.button>div {
+    height:100%;
+}
 .button {
+    height:50px;
     font-size:1.3em;
     background:white;
     box-shadow:-3px 3px 0px #397148;
-    display:inline-block;
     max-width: 300px;
     width: 44%;
+    display:inline-block;
     margin: 1%;
     cursor:pointer;
     font-family: "Sabotage";
